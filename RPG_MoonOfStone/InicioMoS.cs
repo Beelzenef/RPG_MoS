@@ -11,17 +11,20 @@ namespace RPG_MoonOfStone
             GestionOpciones();
         }
 
+        
+
         static void GestionOpciones()
         {
             ConsoleKeyInfo opcion;
             string nombre = string.Empty;
-
+            PJ personaje = new PJ();
             do {
                 opcion = Console.ReadKey();
                 switch (opcion.KeyChar)
                 {
                     case '1':
-                        Console.WriteLine("Eleccion de nombre");
+                        personaje.ModificarNombre();
+                        Console.WriteLine(personaje.Nombre);
                         break;
                     case '2':
                         Console.WriteLine("Eleccion de profesion");
