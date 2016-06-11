@@ -72,5 +72,69 @@ namespace RPG_MoonOfStone
 
     class CirculoInvocacion
     {
+        // Campos
+
+        int _nTizoides;
+        int _nCirculosProteccion;
+
+        // Propiedades
+
+        public int TizoidesInvocados
+        {
+            get { return _nTizoides; }
+            set { _nTizoides = value; }
+        }
+
+        public int CirculosProteccion
+        {
+            get { return _nCirculosProteccion; }
+            set
+            {
+                if (_nCirculosProteccion <= 0)
+                    _nCirculosProteccion = 0;
+                else
+                    _nCirculosProteccion = value;
+            }
+        }
+
+        public bool Vivo { get; set; }
+
+        // Métodos
+
+        void CrearLineaCustodia()
+        {
+            CirculosProteccion++;
+        }
+
+        void DestruirLineaCustodia()
+        {
+            CirculosProteccion--;
+        }
+
+        void CrearLineaProhibicion()
+        {
+
+        }
+
+        void CrearLineaCreacion()
+        {
+            TizoidesInvocados++;
+        }
+
+        void CrearLineaVigor()
+        {
+
+        }
+
+        void Defender()
+        {
+            if (CirculosProteccion == 0)
+                Vivo = false;
+        }
+
+        void Atacar()
+        {
+
+        }
     }
 }
