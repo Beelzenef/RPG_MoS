@@ -6,7 +6,7 @@ namespace RPG_MoonOfStone
     {
         static void Main(string[] args)
         {
-            Console.Title = "Moon of Stone";
+            Console.Title = "Rythmatismo";
             ControlTeclas();
         }
 
