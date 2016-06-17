@@ -12,6 +12,7 @@ namespace RPG_MoonOfStone
 
 
         #region Posicionamiento de cursor para recibir informacion
+
         const int POS1 = 20;
         const int POS2 = 15;
 
@@ -27,7 +28,9 @@ namespace RPG_MoonOfStone
 
             do
             {
-                UIMenu();
+                PintarCaja(11, 60);
+                SeccionOpcion();
+                Descripcion(" ");
                 PosicionarCursor();
                 opcion = Console.ReadKey();
                 switch (opcion.KeyChar)
@@ -50,7 +53,7 @@ namespace RPG_MoonOfStone
                         Console.WriteLine("Fin del programa ...");
                         return;
                     default:
-                        Console.WriteLine("Por favor, elija entre las opciones mostradas");
+                        Console.WriteLine("Opción no válida");
                         break;
                 }
                 Console.ReadKey();
@@ -58,14 +61,12 @@ namespace RPG_MoonOfStone
             } while (opcion.Key != ConsoleKey.Q);
         }
 
-        static void UIMenu()
-        {
+        #region PintaMenu
 
-            #region PintaMenu
+        static void PintarCaja(int limLaterales, int limHorizontales)
+        {           
 
             int columna = 1;
-            const int limLaterales = 11;
-            const int limHorizontales = 60;
 
             Console.Write("\t╔");
             for (int i = 0; i < limHorizontales; i++)
@@ -114,11 +115,13 @@ namespace RPG_MoonOfStone
                 Console.SetCursorPosition(8, i);
                 Console.WriteLine("║");
             }
+        }
+        #endregion
 
-            #endregion
+        #region El menu de usuario
 
-            #region El menu de usuario
-
+        static void SeccionOpcion()
+        {
             // Constantes para dibujar menu pequeño
             const int largoIU = 37;
             const int limIzqIU = 19;
@@ -143,9 +146,30 @@ namespace RPG_MoonOfStone
             Console.SetCursorPosition(limDerIU, 15);
             Console.Write("║");
             Console.SetCursorPosition(limDerIU, 16);
-            Console.Write("╝");
-
-            #endregion
+            Console.Write("╝");           
         }
+
+        static void Descripcion(string entradaTexto)
+        {
+            string contenido = "Bienvenido a la biblioteca de Rythmatismo. Aquí aprenderás todo lo necesario para dibujar los Circulos que te permitirán sobrevivir en este mundo lleno de magia. Porque la noche es oscura y alberga horrores";
+            string[] separadores = {" ", ".", "," };
+            string[] palabras = contenido.Split(separadores, StringSplitOptions.RemoveEmptyEntries);
+
+            int posicion = 18;            
+
+            for (int i = 0; i < palabras.Length; i++)
+            {
+                if (i % 10 == 0)
+                {
+                    posicion++;
+                    Console.SetCursorPosition(5, posicion);
+                }
+                Console.Write(palabras[i] + " ");
+            }
+
+
+        }
+
+        #endregion
     }
 }
