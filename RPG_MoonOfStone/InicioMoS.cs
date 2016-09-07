@@ -33,27 +33,25 @@ namespace RPG_MoonOfStone
                 Descripcion(" ");
                 PosicionarCursor();
                 opcion = Console.ReadKey();
-                switch (opcion.KeyChar)
+                switch (opcion.Key)
                 {
-                    case '1':
+                    case ConsoleKey.D1:
                         PosicionarCursor();
-                        Console.WriteLine("Has seleccionado Circulear");
+                        Console.WriteLine("Has seleccionado Explorar");
                         break;
-                    case '2':
+                    case ConsoleKey.D2:
                         PosicionarCursor();
-                        Console.WriteLine("Has seleccionado Atacar");
+                        Console.WriteLine("Has seleccionado Avanzar");
                         break;
-                    case '3':
-                        PosicionarCursor();
-                        Console.WriteLine("Has seleccionado Defender");
-                        break;
-                    case 'Q':
-                    case 'q':
+                    //case ConsoleKey.D3:
+                    //    PosicionarCursor();
+                    //    Console.WriteLine("Has seleccionado Defender");
+                    //    break;
+                    case ConsoleKey.Q:
                         PosicionarCursor();
                         Console.WriteLine("Fin del programa ...");
                         return;
                     default:
-                        Console.WriteLine("Opción no válida");
                         break;
                 }
                 Console.ReadKey();
@@ -83,8 +81,8 @@ namespace RPG_MoonOfStone
             Console.WriteLine("1. Modificar circulo");
             Console.SetCursorPosition(24, ++columna);
             Console.WriteLine("2. Dibujar ataque");
-            Console.SetCursorPosition(24, ++columna);
-            Console.WriteLine("3. Dibujar defensa");
+            //Console.SetCursorPosition(24, ++columna);
+            //Console.WriteLine("3. Dibujar defensa");
             Console.SetCursorPosition(24, 7);
             Console.WriteLine("Q. SALIR");
             Console.WriteLine();
@@ -151,9 +149,9 @@ namespace RPG_MoonOfStone
 
         static void Descripcion(string entradaTexto)
         {
-            string contenido = "Bienvenido a la biblioteca de Rythmatismo. Aquí aprenderás todo lo necesario para dibujar los Circulos que te permitirán sobrevivir en este mundo lleno de magia. Porque la noche es oscura y alberga horrores";
+            //string contenido = "Bienvenido a la biblioteca de Rythmatismo. Aquí aprenderás todo lo necesario para dibujar los Circulos que te permitirán sobrevivir en este mundo lleno de magia. Porque la noche es oscura y alberga horrores";
             string[] separadores = {" ", ".", "," };
-            string[] palabras = contenido.Split(separadores, StringSplitOptions.RemoveEmptyEntries);
+            string[] palabras = entradaTexto.Split(separadores, StringSplitOptions.RemoveEmptyEntries);
 
             int posicion = 18;            
 
