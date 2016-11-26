@@ -25,6 +25,7 @@ namespace RPG_MoonOfStone
         static void ControlTeclas()
         {
             ConsoleKeyInfo opcion;
+            Movimiento mov = new Movimiento();
 
             do
             {
@@ -43,10 +44,11 @@ namespace RPG_MoonOfStone
                         PosicionarCursor();
                         Console.WriteLine("Has seleccionado Avanzar");
                         break;
-                    //case ConsoleKey.D3:
-                    //    PosicionarCursor();
-                    //    Console.WriteLine("Has seleccionado Defender");
-                    //    break;
+                    case ConsoleKey.D3:
+                        Console.Clear();
+                        mov.PosicionPJ();
+                        //Console.WriteLine("Has seleccionado Defender");
+                        break;
                     case ConsoleKey.Q:
                         PosicionarCursor();
                         Console.WriteLine("Fin del programa ...");
@@ -81,8 +83,8 @@ namespace RPG_MoonOfStone
             Console.WriteLine("1. Modificar circulo");
             Console.SetCursorPosition(24, ++columna);
             Console.WriteLine("2. Dibujar ataque");
-            //Console.SetCursorPosition(24, ++columna);
-            //Console.WriteLine("3. Dibujar defensa");
+            Console.SetCursorPosition(24, ++columna);
+            Console.WriteLine("3. Jugar");
             Console.SetCursorPosition(24, 7);
             Console.WriteLine("Q. SALIR");
             Console.WriteLine();

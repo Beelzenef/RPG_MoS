@@ -10,8 +10,31 @@ namespace RPG_MoonOfStone
     {
         string _nombre;
         int _nivel;
+        int posicionX;
+        int posicionY;
 
         public string Nombre { get { return _nombre; } set { _nombre = value; } }
+
+        public int PosicionX {
+            get { return posicionX; }
+            set {
+                if (posicionX <= 0)
+                    posicionX = 0;
+                if (posicionX >= 79)
+                    posicionX = 79;
+            }
+        }
+        public int PosicionY
+        {
+            get { return posicionY; }
+            set
+            {
+                if (posicionY <= 0)
+                    posicionY = 0;
+                if (posicionY >= 23)
+                    posicionY = 23;
+            }
+        }
 
         public void ModificarNombre()
         {
@@ -24,9 +47,15 @@ namespace RPG_MoonOfStone
             private set { _nivel = value; }
         }
 
+        public PJ(int posX, int posY)
+        {
+            PosicionX = posX;
+            PosicionY = posY;
+        }
+
     }
 
-    class Rythmatista : PJ
+    class Rythmatista
     {
         // Campos
 

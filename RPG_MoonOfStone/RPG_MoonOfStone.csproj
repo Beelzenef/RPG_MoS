@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Movimiento.cs" />
     <Compile Include="InicioMoS.cs" />
     <Compile Include="PJ.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
