@@ -18,10 +18,11 @@ namespace RPG_MoonOfStone
         public int PosicionX {
             get { return posicionX; }
             set {
-                if (posicionX <= 0)
-                    posicionX = 0;
-                if (posicionX >= 79)
-                    posicionX = 79;
+                if (value < 0)
+                    value = 0;
+                if (value > 79)
+                    value = 79;
+                posicionX = value;
             }
         }
         public int PosicionY
@@ -29,11 +30,25 @@ namespace RPG_MoonOfStone
             get { return posicionY; }
             set
             {
-                if (posicionY <= 0)
-                    posicionY = 0;
-                if (posicionY >= 23)
-                    posicionY = 23;
+                if (value <= 0)
+                    value = 0;
+                if (value >= 23)
+                    value = 23;
+                posicionY = value;
             }
+        }
+
+        public void ControlMov(ConsoleKeyInfo mov)
+        {
+            if (mov.Key == ConsoleKey.LeftArrow)
+                PosicionX -= 1;
+            if (mov.Key == ConsoleKey.RightArrow)
+                PosicionX += 1;
+
+            if (mov.Key == ConsoleKey.UpArrow)
+                PosicionY -= 1;
+            if (mov.Key == ConsoleKey.DownArrow)
+                PosicionY += 1;
         }
 
         public void ModificarNombre()

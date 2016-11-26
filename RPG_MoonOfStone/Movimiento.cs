@@ -17,24 +17,10 @@ namespace RPG_MoonOfStone
                 tecla = Console.ReadKey();
                 Console.SetCursorPosition(pjtillo.PosicionX, pjtillo.PosicionY);
                 Console.Write(caracterBorrado);
-                MovimientoPJ(tecla);
+                pjtillo.ControlMov(tecla);
                 Console.SetCursorPosition(pjtillo.PosicionX, pjtillo.PosicionY);
                 Console.Write(personaje);
             } while (tecla.Key != ConsoleKey.Escape);
-        }
-
-        void MovimientoPJ(ConsoleKeyInfo mov)
-        {
-            if (mov.Key == ConsoleKey.LeftArrow)
-                pjtillo.PosicionX += 1;
-            if (mov.Key == ConsoleKey.RightArrow)
-                pjtillo.PosicionX -= 1;
-
-            if (mov.Key == ConsoleKey.UpArrow)
-                pjtillo.PosicionY += 1;
-            if (mov.Key == ConsoleKey.DownArrow)
-                pjtillo.PosicionY -= 1;
-
         }
     }
 }
